@@ -1118,6 +1118,19 @@ img,
   max-width: 1400px;    /* your existing max */
   margin: 0 auto;
 }
+        /* Remove or override the fixed positioning on your header */
+header {
+  position: static;       /* instead of fixed */
+  top: auto;              /* reset */
+  width: auto;            /* let it size naturally */
+  box-shadow: none;       /* optional: drop the shadow if you like */
+}
+
+/* Remove the extra top‐padding on <body> */
+body {
+  padding-top: 0;         /* was 160px to clear the fixed header */
+}
+
 
     </style>
 </head>
