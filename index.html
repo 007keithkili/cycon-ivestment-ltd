@@ -1092,6 +1092,33 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
+        /* 1) prevent any horizontal overflow */
+html, body {
+  overflow-x: hidden;
+}
+
+/* 2) make all box sizing include padding/border so widths play nice */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 3) ensure any fixed‑width elements (images, hero, etc.) can’t exceed their container */
+img,
+.hero-image,
+.project-card img,
+.service-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 4) tighten up your main container on small screens */
+.container {
+  padding: 0 15px;      /* keep 15px gutters at left/right */
+  width: 100%;
+  max-width: 1400px;    /* your existing max */
+  margin: 0 auto;
+}
+
     </style>
 </head>
 <body>
