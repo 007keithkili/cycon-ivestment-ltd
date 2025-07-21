@@ -1152,6 +1152,56 @@ header {
   width: 100%;
   z-index: 1000;
 }
+        <style>
+  /* 1) Turn off fixed header everywhere */
+  header {
+    position: fixed !important;
+    width: 100%;
+  }
+
+  /* 2) Kill any horizontal scrollbars */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* 3) Shrink the hamburger icon on phones */
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block;
+      font-size: 1.4rem;   /* smaller icon */
+      padding: 8px;        /* tighter touch area */
+    }
+  }
+
+  /* 4) Full‑screen off‑canvas nav on mobile */
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;        /* full browser width */
+      height: 100vh;       /* full browser height */
+      background: #fff;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 9999;
+      padding-top: 60px;   /* leave room for the hamburger */
+      box-sizing: border-box;
+    }
+    nav ul.active {
+      transform: translateX(0);
+    }
+    /* tighten up the menu items so they fit neatly */
+    nav ul li {
+      margin: 10px 0;
+    }
+    nav ul li a {
+      display: block;
+      padding: 10px 16px;
+    }
+  }
+</style>
+
 
     </style>
 </head>
