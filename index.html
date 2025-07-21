@@ -1075,6 +1075,55 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
+        @media (max-width: 768px) {
+  /* 1) Make header static on mobile */
+  header {
+    position: static !important;
+    width: 100%;
+  }
+
+  /* 2) Prevent horizontal scrolling anywhere */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* 3) Style the off‑canvas mobile menu */
+  nav ul {
+    position: fixed;
+    top: 0;               /* flush to very top */
+    left: 0;              /* we'll use transform to hide/show */
+    width: 100vw;         /* exactly full viewport width */
+    height: 100vh;        /* cover full height */
+    background: white;    /* your menu bg */
+    transform: translateX(-100%); /* completely off‑screen */
+    transition: transform 0.3s ease-in-out;
+    z-index: 9999;        /* above everything */
+    padding-top: 60px;    /* give room if you have a mobile “open” button */
+    box-sizing: border-box;
+  }
+
+  /* 4) Slide it in when “.active” */
+  nav ul.active {
+    transform: translateX(0);
+  }
+
+  /* 5) Tighter menu‑item spacing */
+  nav ul li {
+    margin: 12px 0;       /* less vertical gap */
+  }
+  nav ul li a {
+    display: block;
+    padding: 12px 20px;   /* good tappable area but not huge */
+    font-size: 1.1rem;
+  }
+
+  /* 6) Make sure your mobile‑menu button sits on top */
+  .mobile-menu-btn {
+    position: relative;
+    z-index: 10000;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -1121,7 +1170,6 @@
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
-        <a href="#quote" class="btn btn-accent">Get a Quote</a>
     </div>
 </header>
 
