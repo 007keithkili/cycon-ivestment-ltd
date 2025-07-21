@@ -1075,6 +1075,53 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
+        /* 1) Turn off fixed header everywhere */
+header {
+  position: static !important;
+  width: 100%;
+}
+
+/* 2) Kill horizontal scrolling globally */
+html, body {
+  overflow-x: hidden;
+}
+
+/* 3) Mobile menu button size reduction */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    font-size: 1.4rem;     /* smaller icon */
+    padding: 8px;          /* tight touch area */
+  }
+}
+
+/* 4) Off‑canvas mobile nav: full‑screen width & height */
+@media (max-width: 768px) {
+  nav ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;          /* full width */
+    height: 100vh;         /* full height */
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 9999;
+    padding-top: 60px;     /* space for your mobile‑menu button */
+    box-sizing: border-box;
+  }
+  nav ul.active {
+    transform: translateX(0);
+  }
+  /* keep your link styles unchanged—just tighten spacing a bit */
+  nav ul li {
+    margin: 10px 0;
+  }
+  nav ul li a {
+    display: block;
+    padding: 10px 16px;
+  }
+}
+
     </style>
 </head>
 <body>
