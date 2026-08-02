@@ -1,650 +1,776 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cycon Investment Ltd | Contact Us</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-  <style>
-    /* ----- RESET & VARIABLES (light/dark) ----- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --accent: #f97316;
-      --accent-dark: #ea580c;
-      --radius: 20px;
-      --radius-sm: 12px;
-      --transition: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    [data-theme="light"] {
-      --bg-body: #f0f4ff;
-      --bg-card: #ffffff;
-      --bg-soft: #e6edf7;
-      --text-primary: #0f172a;
-      --text-muted: #475569;
-      --text-light: #94a3b8;
-      --border: #e2e8f0;
-      --shadow: 0 10px 30px rgba(0,0,0,0.06);
-      --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
-      --header-bg: rgba(255,255,255,0.92);
-      --hero-bg: #eef6ff;
-    }
-    [data-theme="dark"] {
-      --bg-body: #0b1120;
-      --bg-card: #1a2332;
-      --bg-soft: #1e2a3a;
-      --text-primary: #f1f5f9;
-      --text-muted: #cbd5e1;
-      --text-light: #94a3b8;
-      --border: #2d3a4f;
-      --shadow: 0 10px 30px rgba(0,0,0,0.3);
-      --shadow-lg: 0 20px 40px rgba(0,0,0,0.4);
-      --header-bg: rgba(15,23,42,0.92);
-      --hero-bg: #0f1a2e;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-body);
-      color: var(--text-primary);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cycon Investment Ltd | Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <style>
+        /* ----- RESET & VARIABLES (light/dark) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f97316;
+            --accent-dark: #ea580c;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        [data-theme="light"] {
+            --bg-body: #f0f4ff;
+            --bg-card: #ffffff;
+            --bg-soft: #e6edf7;
+            --text-primary: #0f172a;
+            --text-muted: #475569;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --header-bg: rgba(255, 255, 255, 0.92);
+            --hero-bg: #eef6ff;
+        }
+        [data-theme="dark"] {
+            --bg-body: #0b1120;
+            --bg-card: #1a2332;
+            --bg-soft: #1e2a3a;
+            --text-primary: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --text-light: #94a3b8;
+            --border: #2d3a4f;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
+            --header-bg: rgba(15, 23, 42, 0.92);
+            --hero-bg: #0f1a2e;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* ----- BUTTONS (same as home) ----- */
-    .btn {
-      display: inline-block;
-      padding: 14px 36px;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      box-shadow: var(--shadow);
-    }
-    .btn:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); background: var(--primary-dark); }
-    .btn-accent { background: var(--accent); }
-    .btn-accent:hover { background: var(--accent-dark); }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
-    .btn-outline:hover { background: var(--primary); color: #fff; }
-    .btn-dark-mode {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-      padding: 8px 14px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1.1rem;
-    }
-    .btn-dark-mode:hover { background: var(--bg-soft); }
+        /* ----- BUTTONS (same as home) ----- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            background: var(--primary-dark);
+        }
+        .btn-accent {
+            background: var(--accent);
+        }
+        .btn-accent:hover {
+            background: var(--accent-dark);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-dark-mode {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        .btn-dark-mode:hover {
+            background: var(--bg-soft);
+        }
 
-    /* ----- SECTION TITLES (UPPERCASE) ----- */
-    .section-title {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .section-title h2 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section-title p {
-      color: var(--text-muted);
-      max-width: 640px;
-      margin: 0 auto;
-      font-size: 1.15rem;
-    }
-    .badge {
-      display: inline-block;
-      background: rgba(37,99,235,0.10);
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.7rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 16px;
-      border-radius: 50px;
-      margin-bottom: 12px;
-    }
+        /* ----- SECTION TITLES (UPPERCASE) ----- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.10);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 16px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
 
-    /* ----- HEADER (same as home) ----- */
-    header {
-      position: relative;
-      width: 100%;
-      background: var(--header-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s, border 0.3s;
-    }
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-    .logo img {
-      height: 140px;
-      width: auto;
-      object-fit: contain;
-    }
-    .logo-text {
-      font-size: 2.4rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
-    }
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 4px;
-      align-items: center;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 50px;
-      transition: var(--transition);
-      font-size: 0.95rem;
-    }
-    nav ul li a:hover {
-      background: rgba(37,99,235,0.08);
-      color: var(--primary);
-    }
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: var(--text-primary);
-      cursor: pointer;
-      padding: 4px 8px;
-    }
+        /* ----- HEADER (same as home) ----- */
+        header {
+            position: relative;
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border 0.3s;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 140px;
+            width: auto;
+            object-fit: contain;
+        }
+        .logo-text {
+            font-size: 2.4rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        nav ul li a:hover {
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 4px 8px;
+        }
 
-    /* ----- CONTACT SECTION (styled like home, with WhatsApp & email actions) ----- */
-    .contact-section {
-      padding: 80px 0 100px;
-      background: var(--bg-body);
-      transition: background 0.3s;
-    }
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-    .contact-info { display: flex; flex-direction: column; gap: 24px; }
-    .contact-item {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-    .contact-item a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .contact-item a:hover .contact-text p {
-      color: var(--primary);
-    }
-    .contact-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-    .contact-text h3 { font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary); }
-    .contact-text p { color: var(--text-muted); transition: color 0.3s; }
-    .contact-form {
-      background: var(--bg-card);
-      padding: 40px 48px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); }
-    .form-control {
-      width: 100%;
-      padding: 14px 18px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-family: inherit;
-      font-size: 1rem;
-      background: var(--bg-body);
-      color: var(--text-primary);
-      transition: var(--transition);
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.10);
-    }
-    textarea.form-control { min-height: 130px; resize: vertical; }
+        /* ----- CONTACT SECTION (styled like home, with WhatsApp & email actions) ----- */
+        .contact-section {
+            padding: 80px 0 100px;
+            background: var(--bg-body);
+            transition: background 0.3s;
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .contact-item a:hover .contact-text p {
+            color: var(--primary);
+        }
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .contact-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .contact-text p {
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+        .contact-form {
+            background: var(--bg-card);
+            padding: 40px 48px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+        }
+        textarea.form-control {
+            min-height: 130px;
+            resize: vertical;
+        }
 
-    /* ----- FOOTER (same as home) ----- */
-    footer {
-      background: #0f172a;
-      color: #fff;
-      padding: 80px 0 0;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-    .footer-col h3 {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      position: relative;
-    }
-    .footer-col h3::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 36px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 3px;
-    }
-    .footer-col p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 10px; }
-    .footer-links a {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 0.95rem;
-    }
-    .footer-links a:hover { color: var(--accent); padding-left: 4px; }
-    .social-links {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 50%;
-      color: rgba(255,255,255,0.7);
-      transition: var(--transition);
-      font-size: 1rem;
-      text-decoration: none;
-    }
-    .social-links a:hover { background: var(--primary); color: #fff; transform: translateY(-3px); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 24px 0;
-      text-align: center;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-bottom a { color: var(--accent); text-decoration: none; }
-    .footer-bottom a:hover { text-decoration: underline; }
-    .whatsapp-link {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      transition: text-shadow 0.3s ease;
-    }
-    .whatsapp-link:hover {
-      text-shadow: 0 0 6px #25D366, 0 0 12px #25D366;
-    }
+        /* ----- FOOTER (same as home) ----- */
+        footer {
+            background: #0f172a;
+            color: #fff;
+            padding: 80px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 36px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 4px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 24px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .footer-bottom a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+        .whatsapp-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: text-shadow 0.3s ease;
+        }
+        .whatsapp-link:hover {
+            text-shadow: 0 0 6px #25D366, 0 0 12px #25D366;
+        }
 
-    /* ----- WHATSAPP FLOATING BUTTON (same) ----- */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 999;
-      background: #25D366;
-      color: #fff;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
-      transition: var(--transition);
-      text-decoration: none;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.08) translateY(-4px);
-      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
-    }
+        /* ----- WHATSAPP FLOATING BUTTON (same) ----- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08) translateY(-4px);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+        }
 
-    /* ----- RESPONSIVE (same as home) ----- */
-    @media (max-width: 768px) {
-      .mobile-menu-btn { display: block; }
-      nav ul {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: var(--bg-card);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 9999;
-        padding: 20px;
-        border: 1px solid var(--border);
-      }
-      nav ul.active { transform: translateX(0); }
-      nav ul li a { font-size: 1.2rem; padding: 12px 24px; }
-      .contact-container { grid-template-columns: 1fr; }
-      .contact-info { order: 2; }
-      .contact-form { order: 1; padding: 28px 24px; }
-      .logo img { height: 100px; }
-      .logo-text { font-size: 1.8rem; }
-      .header-actions { gap: 8px; }
-    }
-    @media (max-width: 480px) {
-      .logo img { height: 80px; }
-      .logo-text { font-size: 1.4rem; }
-      .whatsapp-float { width: 52px; height: 52px; font-size: 1.8rem; bottom: 20px; right: 20px; }
-    }
-  </style>
+        /* ----- RESPONSIVE (same as home) ----- */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                order: 2;
+            }
+            .contact-form {
+                order: 1;
+            }
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                background: var(--bg-card);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 0 20px;
+                border-bottom: 2px solid var(--primary);
+                box-shadow: var(--shadow-lg);
+                transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+                z-index: 9999;
+                border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+                box-sizing: border-box;
+                pointer-events: none;
+            }
+            nav ul.active {
+                max-height: 500px;
+                padding: 20px 20px 24px;
+                pointer-events: auto;
+            }
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            nav ul li a {
+                display: block;
+                font-size: 1.15rem;
+                padding: 12px 16px;
+                width: 100%;
+                border-radius: 8px;
+                font-weight: 600;
+            }
+            nav ul li a:hover {
+                background: rgba(37, 99, 235, 0.12);
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                order: 2;
+            }
+            .contact-form {
+                order: 1;
+                padding: 28px 24px;
+            }
+            .logo img {
+                height: 70px;
+            }
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            .header-actions {
+                gap: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo img {
+                height: 55px;
+            }
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            .mobile-menu-btn {
+                font-size: 1.3rem;
+            }
+            .btn-dark-mode {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+            nav ul.active {
+                max-height: 450px;
+            }
+            nav ul li a {
+                font-size: 1rem;
+                padding: 10px 14px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- HEADER (exactly same as home) -->
-<header>
-  <div class="container header-container">
-    <a href="index.html" class="logo">
-      <img src="https://i.pinimg.com/736x/2a/d3/7e/2ad37efb7a4b521c2425232387d9a1fb.jpg" alt="Cycon Logo" />
-      <span class="logo-text">Cycon Investment Ltd</span>
-    </a>
-    <div class="header-actions">
-      <nav>
-        <ul id="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="service.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </nav>
-      <button class="btn-dark-mode" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- CONTACT SECTION (with WhatsApp and email actions) -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="section-title">
-      <span class="badge">Get in Touch</span>
-      <h2>Contact Us</h2>
-      <p>Reach out to us for inquiries, quotes, or to discuss your project</p>
-    </div>
-    <div class="contact-container">
-      <div class="contact-info">
-        <!-- Location -->
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-text">
-            <h3>Our Location</h3>
-            <p>TOROR PLAZA - 3rd Floor - ELDORET</p>
-          </div>
+    <!-- HEADER (exactly same as home) -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.pinimg.com/736x/2a/d3/7e/2ad37efb7a4b521c2425232387d9a1fb.jpg" alt="Cycon Logo" />
+                <span class="logo-text">Cycon Investment Ltd</span>
+            </a>
+            <div class="header-actions">
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+                <button class="btn-dark-mode" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
-        <!-- Phone → WhatsApp -->
-        <a href="https://wa.me/254718784796?text=Hello%20Cycon%20Investment%20Ltd%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener" class="contact-item" style="text-decoration:none;">
-          <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-          <div class="contact-text">
-            <h3>Phone / WhatsApp</h3>
-            <p>0718784796</p>
-          </div>
-        </a>
-        <!-- Email → mailto -->
-        <a href="mailto:contact@cycon.co.ke?subject=Inquiry%20from%20Website&body=Hello%20Cycon%20Investment%20Ltd%2C" class="contact-item" style="text-decoration:none;">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div class="contact-text">
-            <h3>Email Address</h3>
-            <p>contact@cycon.co.ke</p>
-          </div>
-        </a>
-        <!-- Working Hours -->
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-clock"></i></div>
-          <div class="contact-text">
-            <h3>Working Hours</h3>
-            <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
-            <p>Saturday: 8:00 AM - 4:00 PM</p>
-            <p>Emergency Services: 24/7</p>
-          </div>
-        </div>
-      </div>
+    </header>
 
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <form id="contactForm" onsubmit="handleFormSubmit(event)">
-          <div class="form-group">
-            <label for="from_name">Your Name</label>
-            <input name="from_name" id="from_name" class="form-control" type="text" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input name="email" id="email" class="form-control" type="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input name="phone" id="phone" class="form-control" type="tel" placeholder="+254 712345678" />
-          </div>
-          <div class="form-group">
-            <label for="service">Which Service?</label>
-            <select name="service" id="service" class="form-control" required>
-              <option value="">Select service</option>
-              <option value="General Supplies">General Supplies</option>
-              <option value="Commercial Construction">Commercial Construction</option>
-              <option value="Borehole Drilling">Borehole Drilling</option>
-              <option value="Building Supplies">Building Supplies</option>
-              <option value="Project Management">Project Management</option>
-              <option value="Site Prep & Groundwork">Site Prep & Groundwork</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea name="message" id="message" class="form-control" placeholder="Your project details…" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-accent" style="width:100%;">
-            <i class="fab fa-whatsapp" style="margin-right:10px;"></i> Send via WhatsApp
-          </button>
-        </form>
-        <div id="thankYou" style="display:none; text-align:center; margin-top:20px; padding:20px; background:var(--bg-soft); border-radius:var(--radius-sm);">
-          <h3 style="color:var(--text-primary);">Thank you!</h3>
-          <p style="color:var(--text-muted);">Your message has been sent via WhatsApp. We'll get back to you shortly.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- CONTACT SECTION (with WhatsApp and email actions) -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <span class="badge">Get in Touch</span>
+                <h2>Contact Us</h2>
+                <p>Reach out to us for inquiries, quotes, or to discuss your project</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <!-- Location -->
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>TOROR PLAZA - 3rd Floor - ELDORET</p>
+                        </div>
+                    </div>
+                    <!-- Phone → WhatsApp -->
+                    <a href="https://wa.me/254718784796?text=Hello%20Cycon%20Investment%20Ltd%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener" class="contact-item" style="text-decoration:none;">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-text">
+                            <h3>Phone / WhatsApp</h3>
+                            <p>0718784796</p>
+                        </div>
+                    </a>
+                    <!-- Email → mailto -->
+                    <a href="mailto:contact@cycon.co.ke?subject=Inquiry%20from%20Website&body=Hello%20Cycon%20Investment%20Ltd%2C" class="contact-item" style="text-decoration:none;">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h3>Email Address</h3>
+                            <p>contact@cycon.co.ke</p>
+                        </div>
+                    </a>
+                    <!-- Working Hours -->
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-text">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
+                            <p>Saturday: 8:00 AM - 4:00 PM</p>
+                            <p>Emergency Services: 24/7</p>
+                        </div>
+                    </div>
+                </div>
 
-<!-- FOOTER (same as home) -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Cycon Investment Ltd</h3>
-        <p>Building excellence since 2016. We transform visions into reality with innovative construction solutions and premium building supplies.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="from_name">Your Name</label>
+                            <input name="from_name" id="from_name" class="form-control" type="text" placeholder="Your Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input name="email" id="email" class="form-control" type="email" placeholder="you@example.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input name="phone" id="phone" class="form-control" type="tel" placeholder="+254 712345678" />
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Which Service?</label>
+                            <select name="service" id="service" class="form-control" required>
+                                <option value="">Select service</option>
+                                <option value="General Supplies">General Supplies</option>
+                                <option value="Commercial Construction">Commercial Construction</option>
+                                <option value="Borehole Drilling">Borehole Drilling</option>
+                                <option value="Building Supplies">Building Supplies</option>
+                                <option value="Project Management">Project Management</option>
+                                <option value="Site Prep & Groundwork">Site Prep & Groundwork</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea name="message" id="message" class="form-control" placeholder="Your project details…" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width:100%;">
+                            <i class="fab fa-whatsapp" style="margin-right:10px;"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                    <div id="thankYou" style="display:none; text-align:center; margin-top:20px; padding:20px; background:var(--bg-soft); border-radius:var(--radius-sm);">
+                        <h3 style="color:var(--text-primary);">Thank you!</h3>
+                        <p style="color:var(--text-muted);">Your message has been sent via WhatsApp. We'll get back to you shortly.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="service.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Our Services</h3>
-        <ul class="footer-links">
-          <li><a href="service.html">General Supplies</a></li>
-          <li><a href="service.html">Commercial Construction</a></li>
-          <li><a href="service.html">Borehole Drilling</a></li>
-          <li><a href="service.html">Building Supplies</a></li>
-          <li><a href="service.html">Project Management</a></li>
-          <li><a href="service.html">Site Preparation</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Newsletter</h3>
-        <p style="color: rgba(255,255,255,0.6); margin-bottom: 16px;">Subscribe for the latest updates and offers.</p>
-        <form style="display:flex; gap:8px;" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-          <input type="email" placeholder="Your Email" style="flex:1; padding:12px 16px; border:none; border-radius:50px; font-family:inherit; font-size:0.95rem;" required />
-          <button type="submit" style="background:var(--accent); color:#fff; border:none; border-radius:50px; padding:0 20px; cursor:pointer; transition:var(--transition);"><i class="fas fa-paper-plane"></i></button>
-        </form>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Cycon Investment Ltd. Developed by <a href="https://wa.me/254721473081?text=Hi%20Keith!" target="_blank" rel="noopener" class="whatsapp-link">Kili Keith</a></p>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<!-- WHATSAPP FLOATING BUTTON (same) -->
-<a href="https://wa.me/254718784796?text=Hello%20Cycon%20Investment%20Ltd%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
-   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
+    <!-- FOOTER (same as home) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Cycon Investment Ltd</h3>
+                    <p>Building excellence since 2016. We transform visions into reality with innovative construction solutions and premium building supplies.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="service.html">General Supplies</a></li>
+                        <li><a href="service.html">Commercial Construction</a></li>
+                        <li><a href="service.html">Borehole Drilling</a></li>
+                        <li><a href="service.html">Building Supplies</a></li>
+                        <li><a href="service.html">Project Management</a></li>
+                        <li><a href="service.html">Site Preparation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 16px;">Subscribe for the latest updates and offers.</p>
+                    <form style="display:flex; gap:8px;" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                        <input type="email" placeholder="Your Email" style="flex:1; padding:12px 16px; border:none; border-radius:50px; font-family:inherit; font-size:0.95rem;" required />
+                        <button type="submit" style="background:var(--accent); color:#fff; border:none; border-radius:50px; padding:0 20px; cursor:pointer; transition:var(--transition);"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cycon Investment Ltd. Developed by <a href="https://wa.me/254721473081?text=Hi%20Keith!" target="_blank" rel="noopener" class="whatsapp-link">Kili Keith</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON (same) -->
+    <a href="https://wa.me/254718784796?text=Hello%20Cycon%20Investment%20Ltd%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+    class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
-  // Mobile Menu Toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
 
-  mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ?
-      '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-  });
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth'
-        });
-        if (navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-      }
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ?
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
-  });
 
-  // Dark / Light Mode Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-  themeToggle.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next = current === 'light' ? 'dark' : 'light';
-    html.setAttribute('data-theme', next);
-    themeToggle.innerHTML = next === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-  });
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navMenu.classList.contains('active')) {
+            const isClickInsideMenu = navMenu.contains(e.target);
+            const isClickOnToggle = mobileMenuBtn.contains(e.target);
+            if (!isClickInsideMenu && !isClickOnToggle) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+    });
 
-  // Contact Form Handler: opens WhatsApp with pre-filled message
-  function handleFormSubmit(event) {
-    event.preventDefault();
+    // Dark / Light Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    themeToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', next);
+        themeToggle.innerHTML = next === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+    });
 
-    const name = document.getElementById('from_name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const service = document.getElementById('service').value;
-    const message = document.getElementById('message').value.trim();
+    // Contact Form Handler: opens WhatsApp with pre-filled message
+    function handleFormSubmit(event) {
+        event.preventDefault();
 
-    // Build the WhatsApp message
-    let whatsappMsg = 'Hello Cycon Investment Ltd,%0A%0A';
-    whatsappMsg += `Name: ${name || 'Not provided'}%0A`;
-    whatsappMsg += `Email: ${email || 'Not provided'}%0A`;
-    whatsappMsg += `Phone: ${phone || 'Not provided'}%0A`;
-    whatsappMsg += `Service: ${service || 'Not selected'}%0A%0A`;
-    whatsappMsg += `Message: ${message || 'No message provided'}`;
+        const name = document.getElementById('from_name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value.trim();
 
-    // WhatsApp number (international format, no +)
-    const waNumber = '254718784796';
+        // Build the WhatsApp message
+        let whatsappMsg = 'Hello Cycon Investment Ltd,%0A%0A';
+        whatsappMsg += `Name: ${name || 'Not provided'}%0A`;
+        whatsappMsg += `Email: ${email || 'Not provided'}%0A`;
+        whatsappMsg += `Phone: ${phone || 'Not provided'}%0A`;
+        whatsappMsg += `Service: ${service || 'Not selected'}%0A%0A`;
+        whatsappMsg += `Message: ${message || 'No message provided'}`;
 
-    // Open WhatsApp
-    window.open(`https://wa.me/${waNumber}?text=${whatsappMsg}`, '_blank');
+        // WhatsApp number (international format, no +)
+        const waNumber = '254718784796';
 
-    // Show thank you message
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('thankYou').style.display = 'block';
-  }
+        // Open WhatsApp
+        window.open(`https://wa.me/${waNumber}?text=${whatsappMsg}`, '_blank');
+
+        // Show thank you message
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('thankYou').style.display = 'block';
+    }
 </script>
 </body>
 </html>
