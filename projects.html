@@ -59,10 +59,10 @@
       padding: 0 24px;
     }
 
-    /* ----- BUTTONS (same as home) ----- */
+    /* ----- BUTTONS (decent size) ----- */
     .btn {
       display: inline-block;
-      padding: 14px 36px;
+      padding: 12px 32px;
       background: var(--primary);
       color: #fff;
       border-radius: 50px;
@@ -73,6 +73,7 @@
       cursor: pointer;
       font-size: 1rem;
       box-shadow: var(--shadow);
+      letter-spacing: 0.3px;
     }
     .btn:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); background: var(--primary-dark); }
     .btn-accent { background: var(--accent); }
@@ -129,7 +130,7 @@
       margin-bottom: 12px;
     }
 
-    /* ----- HEADER (not fixed, same as home) ----- */
+    /* ----- HEADER (not fixed) ----- */
     header {
       position: relative;
       width: 100%;
@@ -139,6 +140,7 @@
       padding: 12px 0;
       border-bottom: 1px solid var(--border);
       transition: background 0.3s, border 0.3s;
+      z-index: 100;
     }
     .header-container {
       display: flex;
@@ -200,7 +202,7 @@
       padding: 4px 8px;
     }
 
-    /* ----- PROJECTS GRID (updated styling, but preserving content) ----- */
+    /* ----- PROJECTS SECTION ----- */
     .projects-section {
       padding: 80px 0 100px;
       background: var(--bg-body);
@@ -208,7 +210,7 @@
     }
     .projects-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
       padding: 20px 0;
     }
@@ -226,7 +228,7 @@
     }
     .project-card img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       display: block;
     }
@@ -245,7 +247,7 @@
       line-height: 1.5;
     }
 
-    /* ----- CONTACT SECTION (same as home) ----- */
+    /* ----- CONTACT SECTION ----- */
     .contact {
       padding: 100px 0;
       background: var(--bg-soft);
@@ -303,7 +305,7 @@
     }
     textarea.form-control { min-height: 130px; resize: vertical; }
 
-    /* ----- FOOTER (same as home) ----- */
+    /* ----- FOOTER ----- */
     footer {
       background: #0f172a;
       color: #fff;
@@ -370,16 +372,8 @@
     }
     .footer-bottom a { color: var(--accent); text-decoration: none; }
     .footer-bottom a:hover { text-decoration: underline; }
-    .whatsapp-link {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      transition: text-shadow 0.3s ease;
-    }
-    .whatsapp-link:hover {
-      text-shadow: 0 0 6px #25D366, 0 0 12px #25D366;
-    }
 
-    /* ----- WHATSAPP FLOATING BUTTON (same) ----- */
+    /* ----- WHATSAPP FLOATING BUTTON ----- */
     .whatsapp-float {
       position: fixed;
       bottom: 28px;
@@ -403,50 +397,107 @@
       box-shadow: 0 8px 32px rgba(37,211,102,0.5);
     }
 
-    /* ----- RESPONSIVE (same as home) ----- */
+    /* ----- RESPONSIVE (fixed mobile header) ----- */
+    @media (max-width: 1024px) {
+      .contact-container { grid-template-columns: 1fr; }
+      .contact-info { order: 2; }
+      .contact-form { order: 1; }
+    }
+
     @media (max-width: 768px) {
-      .mobile-menu-btn { display: block; }
+      /* ---- MOBILE HEADER FIXES ---- */
+      .header-container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+      .logo img { height: 70px; }
+      .logo-text { font-size: 1.4rem; }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 10001;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        padding: 4px 6px;
+      }
+
+      /* Mobile nav - slides down from top, ABOVE header */
       nav ul {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
         background: var(--bg-card);
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        gap: 12px;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        justify-content: center;
+        gap: 6px;
+        padding: 0 20px;
+        border-bottom: 2px solid var(--primary);
+        box-shadow: var(--shadow-lg);
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
         z-index: 9999;
-        padding: 20px;
-        border: 1px solid var(--border);
+        border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+        box-sizing: border-box;
+        pointer-events: none;
       }
-      nav ul.active { transform: translateX(0); }
-      nav ul li a { font-size: 1.2rem; padding: 12px 24px; }
-      .contact-container { grid-template-columns: 1fr; }
-      .contact-info { order: 2; }
-      .contact-form { order: 1; padding: 28px 24px; }
-      .logo img { height: 100px; }
-      .logo-text { font-size: 1.8rem; }
-      .header-actions { gap: 8px; }
+      nav ul.active {
+        max-height: 500px;
+        padding: 20px 20px 24px;
+        pointer-events: auto;
+      }
+      nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      nav ul li a {
+        display: block;
+        font-size: 1.15rem;
+        padding: 12px 16px;
+        width: 100%;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+      nav ul li a:hover {
+        background: rgba(37,99,235,0.12);
+      }
+
+      /* Rest of mobile styles */
+      .section-title h2 { font-size: 2rem; }
       .projects-container { grid-template-columns: 1fr 1fr; }
+      .contact-form { padding: 28px 24px; }
     }
+
     @media (max-width: 480px) {
       .projects-container { grid-template-columns: 1fr; }
-      .logo img { height: 80px; }
-      .logo-text { font-size: 1.4rem; }
+      .logo img { height: 55px; }
+      .logo-text { font-size: 1.1rem; }
       .whatsapp-float { width: 52px; height: 52px; font-size: 1.8rem; bottom: 20px; right: 20px; }
+      .mobile-menu-btn { font-size: 1.3rem; }
+      .btn-dark-mode { padding: 6px 10px; font-size: 0.9rem; }
+      nav ul.active { max-height: 450px; }
+      nav ul li a { font-size: 1rem; padding: 10px 14px; }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER (exactly same as home) -->
+<!-- HEADER (exactly same as index.html) -->
 <header>
   <div class="container header-container">
-    <a href="#home" class="logo">
+    <a href="index.html" class="logo">
       <img src="https://i.pinimg.com/736x/2a/d3/7e/2ad37efb7a4b521c2425232387d9a1fb.jpg" alt="Cycon Logo" />
       <span class="logo-text">Cycon Investment Ltd</span>
     </a>
@@ -469,7 +520,7 @@
   </div>
 </header>
 
-<!-- PROJECTS SECTION (only content from your provided projects.html, with same styling as home) -->
+<!-- PROJECTS SECTION -->
 <section class="projects-section" id="projects">
   <div class="container">
     <div class="section-title">
@@ -547,7 +598,7 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION (same as home) -->
+<!-- CONTACT SECTION -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="section-title">
@@ -560,8 +611,8 @@
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div class="contact-text">
-            <h3>Our Location in Eldoret</h3>
-            <p>TOROR PLAZA ,3RD FLOOR</p>
+            <h3>Our Location</h3>
+            <p>TOROR PLAZA - 3rd Floor - ELDORET</p>
           </div>
         </div>
         <div class="contact-item">
@@ -575,7 +626,7 @@
           <div class="contact-icon"><i class="fas fa-envelope"></i></div>
           <div class="contact-text">
             <h3>Email Address</h3>
-            <p>contact@cycoon.co.ke</p>
+            <p>contact@cycon.co.ke</p>
           </div>
         </div>
         <div class="contact-item">
@@ -639,7 +690,7 @@
   </div>
 </section>
 
-<!-- FOOTER (same as home) -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -657,23 +708,22 @@
       <div class="footer-col">
         <h3>Quick Links</h3>
         <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h3>Our Services</h3>
         <ul class="footer-links">
-          <li><a href="#">GENERAL SUPPLIES</a></li>
-          <li><a href="#">Commercial Construction</a></li>
-          <li><a href="#">Borehole Drilling services</a></li>
-          <li><a href="#">Building Supplies</a></li>
-          <li><a href="#">Project Management</a></li>
-          <li><a href="#">Site preparation & groundwork</a></li>
+          <li><a href="service.html">General Supplies</a></li>
+          <li><a href="service.html">Commercial Construction</a></li>
+          <li><a href="service.html">Borehole Drilling</a></li>
+          <li><a href="service.html">Building Supplies</a></li>
+          <li><a href="service.html">Project Management</a></li>
+          <li><a href="service.html">Site Preparation</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -686,12 +736,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Cycon Investment Ltd. Developed by <a href="https://wa.me/254721473081?text=Hi%20Keith!" target="_blank" rel="noopener" class="whatsapp-link">Kili Keith</a></p>
+      <p>&copy; 2024 Cycon Investment Ltd. Developed by <a href="https://wa.me/254721473081?text=Hi%20Keith!" target="_blank" rel="noopener">Kili Keith</a></p>
     </div>
   </div>
 </footer>
 
-<!-- WHATSAPP FLOATING BUTTON (same) -->
+<!-- WHATSAPP FLOATING BUTTON -->
 <a href="https://wa.me/254718784796?text=Hello%20Cycon%20Investment%20Ltd%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
    class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
@@ -702,26 +752,46 @@
   const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
-  mobileMenuBtn.addEventListener('click', () => {
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     navMenu.classList.toggle('active');
     mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ?
       '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
   });
 
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (navMenu.classList.contains('active')) {
+      const isClickInsideMenu = navMenu.contains(e.target);
+      const isClickOnToggle = mobileMenuBtn.contains(e.target);
+      if (!isClickInsideMenu && !isClickOnToggle) {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    }
+  });
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth'
-        });
+        // Close mobile menu first
         if (navMenu.classList.contains('active')) {
           navMenu.classList.remove('active');
           mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         }
+        
+        const offset = 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
       }
     });
   });
