@@ -622,7 +622,7 @@
       box-shadow: 0 8px 32px rgba(37,211,102,0.5);
     }
 
-    /* ----- RESPONSIVE ----- */
+    /* ----- RESPONSIVE (fixed mobile header) ----- */
     @media (max-width: 1024px) {
       .hero .container { grid-template-columns: 1fr; text-align: center; }
       .hero-content p { margin-left: auto; margin-right: auto; }
@@ -634,45 +634,96 @@
       .contact-info { order: 2; }
       .contact-form { order: 1; }
     }
+
     @media (max-width: 768px) {
-      .mobile-menu-btn { display: block; }
+      /* ---- MOBILE HEADER FIXES ---- */
+      .header-container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo img { height: 70px; }
+      .logo-text { font-size: 1.4rem; }
+
+      /* Mobile menu button & dark mode stay at right */
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        padding: 4px 6px;
+      }
+
+      /* Compact mobile nav - slides down from top as a small vertical list */
       nav ul {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
         background: var(--bg-card);
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        gap: 12px;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 9999;
-        padding: 20px;
-        border: 1px solid var(--border);
+        justify-content: center;
+        gap: 6px;
+        padding: 0 20px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        transition: max-height 0.35s ease, padding 0.3s ease;
+        z-index: 9998;
+        border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+        box-sizing: border-box;
       }
-      nav ul.active { transform: translateX(0); }
-      nav ul li a { font-size: 1.2rem; padding: 12px 24px; }
+      nav ul.active {
+        max-height: 400px;
+        padding: 20px 20px 24px;
+      }
+      nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      nav ul li a {
+        display: block;
+        font-size: 1.1rem;
+        padding: 10px 16px;
+        width: 100%;
+        border-radius: 8px;
+      }
+      nav ul li a:hover {
+        background: rgba(37,99,235,0.08);
+      }
+
+      /* Push content down so it's not hidden behind the fixed nav */
+      body.menu-open {
+        padding-top: 0;
+      }
+
+      /* Rest of mobile styles */
       .hero-content h1 { font-size: 2.6rem; }
       .section-title h2 { font-size: 2rem; }
       .services-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr 1fr; }
       .testimonial-card { padding: 32px 24px; }
       .contact-form { padding: 28px 24px; }
-      .logo img { height: 100px; }
-      .logo-text { font-size: 1.8rem; }
-      .header-actions { gap: 8px; }
     }
+
     @media (max-width: 480px) {
       .hero-content h1 { font-size: 2rem; }
       .projects-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr; width: 100%; }
       .footer-grid { grid-template-columns: 1fr; }
-      .logo img { height: 80px; }
-      .logo-text { font-size: 1.4rem; }
+      .logo img { height: 55px; }
+      .logo-text { font-size: 1.1rem; }
       .whatsapp-float { width: 52px; height: 52px; font-size: 1.8rem; bottom: 20px; right: 20px; }
+      .mobile-menu-btn { font-size: 1.3rem; }
+      .btn-dark-mode { padding: 6px 10px; font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -692,7 +743,6 @@
           <li><a href="about.html">About</a></li>
           <li><a href="service.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
-          
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">
@@ -885,7 +935,7 @@
       </div>
       <div class="project-card">
         <div class="project-img"><img src="https://i.pinimg.com/736x/8d/91/33/8d9133103911528d6451903fc9bd8e1b.jpg" alt="Project" /></div>
-        <div class="project-overlay"><h3Completed Residential Project</h3><p>Industrial</p></div>
+        <div class="project-overlay"><h3>Completed Residential Project</h3><p>Industrial</p></div>
       </div>
       <div class="project-card">
         <div class="project-img"><img src="https://i.pinimg.com/1200x/ea/07/a4/ea07a4f5b6758653e7196e1c8dd04b80.jpg" alt="Project" /></div>
