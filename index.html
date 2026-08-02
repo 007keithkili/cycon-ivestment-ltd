@@ -139,6 +139,7 @@
       padding: 12px 0;
       border-bottom: 1px solid var(--border);
       transition: background 0.3s, border 0.3s;
+      z-index: 100;
     }
     .header-container {
       display: flex;
@@ -641,16 +642,18 @@
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
+        position: relative;
       }
       .logo img { height: 70px; }
       .logo-text { font-size: 1.4rem; }
 
-      /* Mobile menu button & dark mode stay at right */
       .header-actions {
         display: flex;
         align-items: center;
         gap: 8px;
         flex-shrink: 0;
+        position: relative;
+        z-index: 10001;
       }
 
       .mobile-menu-btn {
@@ -659,7 +662,7 @@
         padding: 4px 6px;
       }
 
-      /* Compact mobile nav - slides down from top as a small vertical list */
+      /* Mobile nav - slides down from top, ABOVE header */
       nav ul {
         position: fixed;
         top: 0;
@@ -673,16 +676,18 @@
         justify-content: center;
         gap: 6px;
         padding: 0 20px;
-        border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow);
-        transition: max-height 0.35s ease, padding 0.3s ease;
-        z-index: 9998;
+        border-bottom: 2px solid var(--primary);
+        box-shadow: var(--shadow-lg);
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+        z-index: 9999;
         border-radius: 0 0 var(--radius-sm) var(--radius-sm);
         box-sizing: border-box;
+        pointer-events: none;
       }
       nav ul.active {
-        max-height: 400px;
+        max-height: 500px;
         padding: 20px 20px 24px;
+        pointer-events: auto;
       }
       nav ul li {
         margin: 0;
@@ -691,18 +696,14 @@
       }
       nav ul li a {
         display: block;
-        font-size: 1.1rem;
-        padding: 10px 16px;
+        font-size: 1.15rem;
+        padding: 12px 16px;
         width: 100%;
         border-radius: 8px;
+        font-weight: 600;
       }
       nav ul li a:hover {
-        background: rgba(37,99,235,0.08);
-      }
-
-      /* Push content down so it's not hidden behind the fixed nav */
-      body.menu-open {
-        padding-top: 0;
+        background: rgba(37,99,235,0.12);
       }
 
       /* Rest of mobile styles */
@@ -724,6 +725,8 @@
       .whatsapp-float { width: 52px; height: 52px; font-size: 1.8rem; bottom: 20px; right: 20px; }
       .mobile-menu-btn { font-size: 1.3rem; }
       .btn-dark-mode { padding: 6px 10px; font-size: 0.9rem; }
+      nav ul.active { max-height: 450px; }
+      nav ul li a { font-size: 1rem; padding: 10px 14px; }
     }
   </style>
 </head>
