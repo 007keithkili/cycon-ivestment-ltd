@@ -59,10 +59,10 @@
       padding: 0 24px;
     }
 
-    /* ----- BUTTONS ----- */
+    /* ----- BUTTONS (decent size) ----- */
     .btn {
       display: inline-block;
-      padding: 14px 36px;
+      padding: 12px 32px;
       background: var(--primary);
       color: #fff;
       border-radius: 50px;
@@ -73,6 +73,7 @@
       cursor: pointer;
       font-size: 1rem;
       box-shadow: var(--shadow);
+      letter-spacing: 0.3px;
     }
     .btn:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); background: var(--primary-dark); }
     .btn-accent { background: var(--accent); }
@@ -185,6 +186,7 @@
       border-radius: 50px;
       transition: var(--transition);
       font-size: 0.95rem;
+      cursor: pointer;
     }
     nav ul li a:hover {
       background: rgba(37,99,235,0.08);
@@ -735,18 +737,18 @@
 <!-- HEADER -->
 <header>
   <div class="container header-container">
-    <a href="index.html" class="logo">
+    <a href="#home" class="logo">
       <img src="https://i.pinimg.com/736x/2a/d3/7e/2ad37efb7a4b521c2425232387d9a1fb.jpg" alt="Cycon Logo" />
       <span class="logo-text">Cycon Investment Ltd</span>
     </a>
     <div class="header-actions">
       <nav>
         <ul id="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="service.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
@@ -766,7 +768,7 @@
       <h1>"We Build, <span>We Supply,</span> We Deliver Excellence"</h1>
       <p>Your premier partner for innovative construction solutions and premium building supplies. We transform visions into structures that stand the test of time.</p>
       <div class="hero-btns">
-        <a href="service.html" class="btn">Explore Services</a>
+        <a href="#services" class="btn">Explore Services</a>
         <a href="#contact" class="btn btn-outline">Contact Us</a>
       </div>
     </div>
@@ -985,7 +987,7 @@
       <p>Let's turn your vision into reality. Get in touch with our team today for a free consultation and quote.</p>
       <div class="cta-btns">
         <a href="#contact" class="btn cta-btn-light">Get a Quote</a>
-        <a href="service.html" class="btn cta-btn-outline-light">Our Services</a>
+        <a href="#services" class="btn cta-btn-outline-light">Our Services</a>
       </div>
     </div>
   </div>
@@ -1112,12 +1114,12 @@
       <div class="footer-col">
         <h3>Our Services</h3>
         <ul class="footer-links">
-          <li><a href="#">General Supplies</a></li>
-          <li><a href="#">Commercial Construction</a></li>
-          <li><a href="#">Borehole Drilling</a></li>
-          <li><a href="#">Building Supplies</a></li>
-          <li><a href="#">Project Management</a></li>
-          <li><a href="#">Site Preparation</a></li>
+          <li><a href="#services">General Supplies</a></li>
+          <li><a href="#services">Commercial Construction</a></li>
+          <li><a href="#services">Borehole Drilling</a></li>
+          <li><a href="#services">Building Supplies</a></li>
+          <li><a href="#services">Project Management</a></li>
+          <li><a href="#services">Site Preparation</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1146,26 +1148,46 @@
   const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
-  mobileMenuBtn.addEventListener('click', () => {
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     navMenu.classList.toggle('active');
     mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ?
       '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
   });
 
-  // Smooth scroll for anchor links
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (navMenu.classList.contains('active')) {
+      const isClickInsideMenu = navMenu.contains(e.target);
+      const isClickOnToggle = mobileMenuBtn.contains(e.target);
+      if (!isClickInsideMenu && !isClickOnToggle) {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    }
+  });
+
+  // Smooth scroll for anchor links - FIXED
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth'
-        });
+        // Close mobile menu first
         if (navMenu.classList.contains('active')) {
           navMenu.classList.remove('active');
           mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         }
+        
+        const offset = 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
       }
     });
   });
