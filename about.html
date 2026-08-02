@@ -678,6 +678,18 @@
       '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
   });
 
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (navMenu.classList.contains('active')) {
+      const isClickInsideMenu = navMenu.contains(e.target);
+      const isClickOnToggle = mobileMenuBtn.contains(e.target);
+      if (!isClickInsideMenu && !isClickOnToggle) {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    }
+  });
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
